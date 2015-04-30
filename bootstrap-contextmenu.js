@@ -56,16 +56,32 @@
 			$menu.attr('style', '')
 				.css(tp)
 				.addClass('open')
-				.on('click.context.data-api', items, $.proxy(this.onItem, this, $(e.currentTarget)))
+				.on('mousedown.context.data-api', items, $.proxy(this.onItem, this, $(e.currentTarget)))
 				.trigger('shown.bs.context', relatedTarget);
 
 			// Delegating the `closemenu` only on the currently opened menu.
 			// This prevents other opened menus from closing.
-			$('html')
-				.on('click.context.data-api', $menu.selector, $.proxy(this.closemenu, this));
+			//$('html')
+			//	.on('click.context.data-api', $menu.selector, $.proxy(this.closemenu, this));
 
 			return false;
 		}
+
+        ,dismissmenu: function(e) {
+			var $menu
+				, evt
+				, items
+				, relatedTarget;
+			$menu = this.getMenu();
+			if(!$menu.hasClass('open')) return;
+            //alert(e.target.tagName);
+            var clickTarget = $(e.target);
+            if (!$.contains($menu[0], clickTarget[0]) || clickTarget.hasClass("menuSelectable")) {
+                this.closemenu(e);
+            } else {
+                //alert("dismissing menu");
+            }
+        }
 
 		,closemenu: function(e) {
 			var $menu
@@ -89,7 +105,9 @@
 				.off('click.context.data-api', $menu.selector);
 			// Don't propagate click event so other currently
 			// opened menus won't close.
-			e.stopPropagation();
+            if (e) {
+                e.stopPropagation();
+            }
 		}
 
 		,keydown: function(e) {
@@ -106,7 +124,8 @@
 
 		,listen: function () {
 			this.$element.on('contextmenu.context.data-api', this.scopes, $.proxy(this.show, this));
-			$('html').on('click.context.data-api', $.proxy(this.closemenu, this));
+			//$('html').on('click.context.data-api', $.proxy(this.closemenu, this));
+			$('html').on('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
 			$('html').on('keydown.context.data-api', $.proxy(this.keydown, this));
 		}
 
@@ -128,7 +147,6 @@
 				selector = this.$element.attr('href');
 				selector = selector && selector.replace(/.*(?=#[^\s]*$)/, ''); //strip for ie7
 			}
-
 			$menu = $(selector);
 
 			return $menu && $menu.length ? $menu : this.$element.find(selector);
