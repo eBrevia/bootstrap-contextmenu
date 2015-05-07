@@ -22,6 +22,8 @@
 
 		this.before = options.before || this.before;
 		this.onItem = options.onItem || this.onItem;
+		this.keydown = options.keydown || this.keydown;
+		//this.keydown2 = options.keydown;
 		this.scopes = options.scopes || null;
 
 		if (options.target) {
@@ -99,6 +101,7 @@
 			items = 'li:not(.divider)';
 			$menu.removeClass('open')
 				.off('click.context.data-api', items)
+				.off('mousedown.context.data-api', items)
 				.trigger('hidden.bs.context', relatedTarget);
 
 			$('html')
