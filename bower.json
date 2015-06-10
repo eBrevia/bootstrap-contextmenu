@@ -1,9 +1,10 @@
 {
   "name": "bootstrap-contextmenu",
   "main": "bootstrap-contextmenu.js",
-  "version": "0.3.3",
-  "homepage": "https://github.com/sydcanem/bootstrap-contextmenu",
+  "version": "0.3.4",
+  "homepage": "https://github.com/Legume1728/bootstrap-contextmenu",
   "authors": [
+    "Legume1728 <mbtoday7@gmail.com>",
     "sydcanem <icqhv.santos@gmail.com>"
   ],
   "description": "Context-menu extension for the Bootstrap framework",

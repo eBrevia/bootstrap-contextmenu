@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-contextmenu",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Context-menu extension for the Bootstrap framework",
   "main": "bootstrap-contextmenu.js",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sydcanem/bootstrap-contextmenu.git"
+    "url": "git@github.com:Legume1728/bootstrap-contextmenu.git"
   },
   "keywords": [
     "bootstrap"
@@ -19,9 +19,9 @@
   "author": "James Santos",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sydcanem/bootstrap-contextmenu/issues"
+    "url": "https://github.com/Legume1728/bootstrap-contextmenu/issues"
   },
-  "homepage": "https://github.com/sydcanem/bootstrap-contextmenu",
+  "homepage": "https://github.com/Legume1728/bootstrap-contextmenu",
   "devDependencies": {
     "gulp": "^3.6.0",
     "gulp-qunit": "^0.3.3"
