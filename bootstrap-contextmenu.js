@@ -61,6 +61,10 @@
 				.on('mousedown.context.data-api', items, $.proxy(this.onItem, this, $(e.currentTarget)))
 				.trigger('shown.bs.context', relatedTarget);
 
+      log("setting dismiss context menu event handlers");
+			$('html').on('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
+			$('html').on('keydown.context.data-api', $.proxy(this.keydown, this));
+
 			// Delegating the `closemenu` only on the currently opened menu.
 			// This prevents other opened menus from closing.
 			//$('html')
@@ -106,6 +110,11 @@
 
 			$('html')
 				.off('click.context.data-api', $menu.selector);
+
+      log("closing dismiss context menu event handlers");
+			$('html').off('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
+			$('html').off('keydown.context.data-api', $.proxy(this.keydown, this));
+
 			// Don't propagate click event so other currently
 			// opened menus won't close.
             if (e) {
@@ -126,13 +135,15 @@
 		}
 
 		,listen: function () {
+      console.log("contextmenu listen");
 			this.$element.on('contextmenu.context.data-api', this.scopes, $.proxy(this.show, this));
 			//$('html').on('click.context.data-api', $.proxy(this.closemenu, this));
-			$('html').on('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
-			$('html').on('keydown.context.data-api', $.proxy(this.keydown, this));
+			//$('html').on('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
+			//$('html').on('keydown.context.data-api', $.proxy(this.keydown, this));
 		}
 
 		,destroy: function() {
+      console.log("contextmenu destroy");
 			this.$element.off('.context.data-api').removeData('context');
 			$('html').off('.context.data-api');
 		}
