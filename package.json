@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-contextmenu",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Context-menu extension for the Bootstrap framework",
   "main": "bootstrap-contextmenu.js",
   "directories": {
