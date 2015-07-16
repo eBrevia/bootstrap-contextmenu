@@ -135,7 +135,7 @@
 		}
 
 		,listen: function () {
-      console.log("contextmenu listen");
+      //console.log("contextmenu listen");
 			this.$element.on('contextmenu.context.data-api', this.scopes, $.proxy(this.show, this));
 			//$('html').on('click.context.data-api', $.proxy(this.closemenu, this));
 			//$('html').on('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
@@ -143,7 +143,7 @@
 		}
 
 		,destroy: function() {
-      console.log("contextmenu destroy");
+      //console.log("contextmenu destroy");
 			this.$element.off('.context.data-api').removeData('context');
 			$('html').off('.context.data-api');
 		}
