@@ -61,7 +61,6 @@
 				.on('mousedown.context.data-api', items, $.proxy(this.onItem, this, $(e.currentTarget)))
 				.trigger('shown.bs.context', relatedTarget);
 
-      log("setting dismiss context menu event handlers");
 			$('html').on('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
 			$('html').on('keydown.context.data-api', $.proxy(this.keydown, this));
 
@@ -111,7 +110,6 @@
 			$('html')
 				.off('click.context.data-api', $menu.selector);
 
-      log("closing dismiss context menu event handlers");
 			$('html').off('mousedown.context.data-api', $.proxy(this.dismissmenu, this));
 			$('html').off('keydown.context.data-api', $.proxy(this.keydown, this));
 
